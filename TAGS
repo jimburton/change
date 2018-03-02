@@ -1,24 +1,24 @@
 
+./src/Main.hs,620
+module Main Main0,1
+data Coin Coin2,3
+data Coin = Pound Pound2,3
+data Coin = Pound | Fifty Fifty2,3
+data Coin = Pound | Fifty | Twenty Twenty2,3
+data Coin = Pound | Fifty | Twenty | Ten Ten2,3
+data Coin = Pound | Fifty | Twenty | Ten | Five Five2,3
+data Coin = Pound | Fifty | Twenty | Ten | Five | Two Two2,3
+data Coin = Pound | Fifty | Twenty | Ten | Five | Two | PennyPenny2,3
+values values6,7
+values values7,8
+getCoin getCoin10,11
+getCoin getCoin11,12
+coinDiv coinDiv19,20
+coinDiv coinDiv20,21
+makeChange makeChange26,27
+makeChange makeChange27,28
+main main31,32
+main main32,33
+
 ./Setup.hs,15
 main main1,2
-
-./src/Main.hs,624
-module Main Main0,1
-data Coin Coin4,5
-data Coin = Pound Pound4,5
-data Coin = Pound | Fifty Fifty4,5
-data Coin = Pound | Fifty | Twenty Twenty4,5
-data Coin = Pound | Fifty | Twenty | Ten Ten4,5
-data Coin = Pound | Fifty | Twenty | Ten | Five Five4,5
-data Coin = Pound | Fifty | Twenty | Ten | Five | Two Two4,5
-data Coin = Pound | Fifty | Twenty | Ten | Five | Two | PennyPenny4,5
-values values12,13
-values values13,14
-getCoin getCoin15,16
-getCoin getCoin16,17
-coinDiv coinDiv18,19
-coinDiv coinDiv19,20
-makeChange makeChange23,24
-makeChange makeChange24,25
-main main30,31
-main main31,32
