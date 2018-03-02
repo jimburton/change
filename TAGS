@@ -1,0 +1,24 @@
+
+./Setup.hs,15
+main main1,2
+
+./src/Main.hs,624
+module Main Main0,1
+data Coin Coin4,5
+data Coin = Pound Pound4,5
+data Coin = Pound | Fifty Fifty4,5
+data Coin = Pound | Fifty | Twenty Twenty4,5
+data Coin = Pound | Fifty | Twenty | Ten Ten4,5
+data Coin = Pound | Fifty | Twenty | Ten | Five Five4,5
+data Coin = Pound | Fifty | Twenty | Ten | Five | Two Two4,5
+data Coin = Pound | Fifty | Twenty | Ten | Five | Two | PennyPenny4,5
+values values12,13
+values values13,14
+getCoin getCoin15,16
+getCoin getCoin16,17
+coinDiv coinDiv18,19
+coinDiv coinDiv19,20
+makeChange makeChange23,24
+makeChange makeChange24,25
+main main30,31
+main main31,32
