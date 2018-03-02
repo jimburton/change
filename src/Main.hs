@@ -1,6 +1,7 @@
 module Main where
 
-import Data.Maybe (fromJust)
+import Control.Monad (forever)
+import Data.Maybe    (fromJust)
 
 data Coin = Pound | Fifty | Twenty | Ten | Five | Two | Penny
                deriving (Eq, Ord, Enum, Show)
@@ -21,4 +22,11 @@ makeChange n = let (cs, rem) = coinDiv n (getCoin n) in
                cs ++ (makeChange rem)
 
 main :: IO ()
-main = putStrLn "Hello, Haskell!"
+main = do
+  putStrLn "Enter a number and I'll count out the change"
+  str <- getLine
+  if null str then return ()
+  else do let coins = makeChange $ (read str::Int)
+          putStrLn $ show coins
+          main
+
