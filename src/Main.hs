@@ -1,7 +1,9 @@
 module Main where
 
-import Control.Monad (forever)
-import Data.Maybe    (fromJust)
+--import Control.Monad            (when)
+import Control.Monad.State.Lazy
+import Data.Maybe               (fromJust)
+
 
 data Coin = Pound | Fifty | Twenty | Ten | Five | Two | Penny
                deriving (Eq, Ord, Enum, Show)
@@ -16,17 +18,23 @@ coinDiv :: Int -> (Coin, Int) -> ([Coin], Int)
 coinDiv n (c,i) = let (d,m) = n `divMod` i in
                   (replicate d c, m)
 
-makeChange :: Int -> [Coin]
-makeChange 0 = []
-makeChange n = let (cs, rem) = coinDiv n (getCoin n) in
-               cs ++ (makeChange rem)
+makeChange :: State Int [Coin]
+makeChange = do
+  i <- get
+  if i > 0 then do
+      let (cs, rem) = coinDiv i (getCoin i)
+      put rem
+      rest <- makeChange
+      return $ cs ++ rest
+  else return []
 
 main :: IO ()
 main = do
   putStrLn "Enter a number and I'll count out the change"
   str <- getLine
   if null str then return ()
-  else do let coins = makeChange $ (read str::Int)
+  else do let i = read str :: Int
+              coins = evalState makeChange i
           putStrLn $ show coins
           main
 
