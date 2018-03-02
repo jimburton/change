@@ -1,9 +1,6 @@
 module Main where
 
---import Control.Monad            (when)
 import Control.Monad.State.Lazy
-import Data.Maybe               (fromJust)
-
 
 data Coin = Pound | Fifty | Twenty | Ten | Five | Two | Penny
                deriving (Eq, Ord, Enum, Show)
