@@ -28,7 +28,7 @@ Enter a number and I'll count out the change
 $
 ```
 
-The `makeChange` function starts with the total amount of money that
+In `Main.hs`, the `makeChange` function starts with the total amount of money that
 we need to make change for. It calculates the number of highest value
 coins that can be taken from this amount, then calls itself
 recursively with the remainder amount. Study the code so that you
