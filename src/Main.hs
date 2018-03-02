@@ -1,8 +1,5 @@
 module Main where
 
-import Control.Monad (forever)
-import Data.Maybe    (fromJust)
-
 data Coin = Pound | Fifty | Twenty | Ten | Five | Two | Penny
                deriving (Eq, Ord, Enum, Show)
 
