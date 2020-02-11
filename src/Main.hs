@@ -30,14 +30,14 @@ coinDiv n (c,i) = let (d,m) = n `divMod` i in
 -}
 makeChange :: Int -> [Coin]
 makeChange 0 = []
-makeChange n = let (cs, rem) = coinDiv n (getCoin n) in
-               cs ++ makeChange rem
+makeChange n = let (cs, rm) = coinDiv n (getCoin n) in
+               cs ++ makeChange rm
 
 prettyPrint :: [Coin] -> String
 prettyPrint = intercalate ", " . map (prettyPair . (\ds -> (length ds, head ds))) . group 
   where prettyPair (i, c)     = show i ++ " " ++ prettyCoin (i, c)
         prettyCoin (i, Pound) = "pound coin" ++ plural i
-        prettyCoin (i, Penny) = "pence"
+        prettyCoin (_, Penny) = "pence"
         prettyCoin (i, c)     = let cStr = show c in
                                   toLower (head cStr) : tail cStr ++ " pence piece" ++
                                   plural i
