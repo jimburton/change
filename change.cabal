@@ -4,22 +4,17 @@
 name:                change
 version:             0.1.0.0
 synopsis:            CI285 Lab exercise in using the State monad
--- description:         
 homepage:            https://github.com/jimburton/change
 license:             BSD3
 license-file:        LICENSE
 author:              James Burton
 maintainer:          j.burton@brighton.ac.uk
--- copyright:           
--- category:            
 build-type:          Simple
 extra-source-files:  ChangeLog.md
 cabal-version:       >=1.10
 
 executable change
   main-is:             Main.hs
-  -- other-modules:       
-  -- other-extensions:    
   Ghc-Options:         -Wall
   build-depends:       base
   hs-source-dirs:      src
