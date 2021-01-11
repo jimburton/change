@@ -19,21 +19,19 @@ prop_getCoin (Positive x) = let (c,i) = getCoin x in
   x >= i && fst (head (dropWhile ((>x) . snd) values)) == c  
 
 {--
-To test coinDiv we need to tell QuickCheckk how to supply arbitrary elements
-from the list `values', then an integer which is at least as large as the value of the
-(coin, int) value it picked in the previous step.
+To test coinDiv we need to tell QuickCheck how to supply an integer
+which is at least as large as the value of the (coin, int) value it
+picked in the previous step. We create a new generator that will produce
+an int which is larger than a given value.
 --}
-genValue :: Gen (Coin, Int)
-genValue = elements values
-
 genBigger :: Int -> Gen Int
 genBigger i = abs `fmap` (arbitrary :: Gen Int) `suchThat` (> i)
 
 {--
-We use these two generators to create the test using `do' syntax.
+We use this generator to create the test using `do' syntax.
 --}
 prop_coinDiv :: Gen Bool
-prop_coinDiv = do (c,i) <- genValue
+prop_coinDiv = do (c,i) <- elements values -- get an arbitrary (coin, int) pair
                   x <- genBigger i
                   let (cs, r) = coinDiv x (c,i)
                   return (((length cs)*i)+r == x)
