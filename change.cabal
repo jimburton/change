@@ -2,24 +2,46 @@
 -- documentation, see http://haskell.org/cabal/users-guide/
 
 name:                change
-version:             0.1.0.0
+version:             0.2.0.0
 synopsis:            CI285 Lab exercise in using the State monad
--- description:         
 homepage:            https://github.com/jimburton/change
 license:             BSD3
 license-file:        LICENSE
 author:              James Burton
 maintainer:          j.burton@brighton.ac.uk
--- copyright:           
--- category:            
 build-type:          Simple
 extra-source-files:  ChangeLog.md
 cabal-version:       >=1.10
 
 executable change
   main-is:             Main.hs
-  -- other-modules:       
-  -- other-extensions:    
-  build-depends:       base, mtl
+  other-modules:       Change
+  Ghc-Options:         -Wall
+  build-depends:       base
+                     , monads-tf
   hs-source-dirs:      src
+  default-language:    Haskell2010
+
+Test-Suite test-hunit
+  Type:                exitcode-stdio-1.0
+  Main-is:             TestHUnit.hs
+  other-modules:       Change
+  hs-source-dirs:      test, src
+  Ghc-Options:         -Wall
+  Build-depends:       base
+                     , monads-tf
+                     , HUnit                     
+  default-language:    Haskell2010
+
+Test-Suite test-quickcheck
+  Type:                exitcode-stdio-1.0
+  Main-is:             TestQuickCheck.hs
+  other-modules:       Change
+  hs-source-dirs:      test, src
+  Ghc-Options:         -Wall
+  Build-depends:       base
+                     , monads-tf
+                     , test-framework
+                     , test-framework-quickcheck2
+                     , QuickCheck                     
   default-language:    Haskell2010

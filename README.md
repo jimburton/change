@@ -11,10 +11,7 @@ user enters an empty line:
 ```
 $ git clone https://github.com/jimburton/change
 $ cd change
-$ cabal sandbox init
-$ cabal configure
-$ cabal install
-$ cabal run
+$ cabal run change
 Preprocessing executable 'change' for change-0.1.0.0...
 Running change...
 Enter a number and I'll count out the change
@@ -28,7 +25,7 @@ Enter a number and I'll count out the change
 $
 ```
 
-The `makeChange` function starts with the total amount of money that
+In `Change.hs`, the `makeChange` function starts with the total amount of money that
 we need to make change for. It calculates the number of highest value
 coins that can be taken from this amount, then calls itself
 recursively with the remainder amount. Study the code so that you
