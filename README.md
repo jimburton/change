@@ -37,10 +37,10 @@ the `State` monad to store the remaining amount as a piece of state
 to be read and updated in the `makeChange` function.
 
 Add the import statement `import Control.Monad.State.Lazy` to the top
-of `Main.hs`. You also need to tell `cabal` about this dependency. Add
-`mtl` (Monad Transformer Library) to the list of dependencies:
+of `Main.hs` and `Change.hs`. You also need to tell `cabal` about this dependency. Add
+`monads-tf` (Monad Transformer Library) to the list of dependencies:
 
-    build-depends: base, mtl
+    build-depends: base, monads-tf
 	
 Then run `cabal configure` again. Change the type of `makeChange` like so:
 
@@ -62,3 +62,7 @@ number supplied by the user as the initial state:
 
     let i     = read str :: Int
 	    coins = evalState makeChange i
+		
+To make the tests work you will also need to change the calls to
+`makeChange` in `TestHUnit.hs` and `TestQuickCheck.hs` to use
+`evalState`. 
