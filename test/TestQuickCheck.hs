@@ -34,19 +34,19 @@ prop_coinDiv :: Gen Bool
 prop_coinDiv = do (c,i) <- elements values -- get an arbitrary (coin, int) pair
                   x <- genBigger i
                   let (cs, r) = coinDiv x (c,i)
-                  return (((length cs)*i)+r == x)
+                  return ((length cs*i)+r == x)
 
 {--
-The last test is simpler but like the first one, needs positive integers.
+The last test is simpler and doesn't need positive integers.
 --}
 prop_makeChange :: Positive Int -> Bool
 prop_makeChange (Positive x) =
-  sum (map (fromJust . (\c -> lookup c values)) $ makeChange x) == x  
+  sum (map (fromJust . (`lookup` values)) $ makeChange x) == x  
 
 tests :: [Test]
-tests = [ testProperty "prop_getCoin" prop_getCoin
-        , testProperty "prop_coinDiv" prop_coinDiv
-        , testProperty "prop_makeChange" prop_makeChange
+tests = [ testProperty "Test getCoin" prop_getCoin
+        , testProperty "Test coinDiv" prop_coinDiv
+        , testProperty "Test makeChange" prop_makeChange
         ]
         
 main :: IO ()

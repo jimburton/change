@@ -3,11 +3,11 @@ module Change where
 data Coin = Pound | Fifty | Twenty | Ten | Five | Two | Penny
                deriving (Eq, Ord, Enum, Show)
 
-{-| Pairs each coin with its monetary value in pennies.  -}
+-- | Pairs each coin with its monetary value in pennies.  
 values :: [(Coin, Int)]
 values = zip [Pound .. Penny] [100, 50, 20, 10, 5, 2, 1]
 
-{-| Finds the highest denomination coin that is smaller than the argument. -}
+-- | Finds the highest denomination coin that is smaller than the argument. 
 getCoin :: Int -> (Coin, Int)
 getCoin i = head $ dropWhile ((>i) . snd) values
 
@@ -22,9 +22,9 @@ coinDiv n (c,i) = let (d,m) = n `divMod` i in
                   (replicate d c, m)
 
 {-| Takes a number of pennies and returns the shortest list of coins that make up
-    that value.
+    that value. If @n@ is less than one, returns the empty list.
 -}
 makeChange :: Int -> [Coin]
-makeChange 0 = []
-makeChange n = let (cs, rm) = coinDiv n (getCoin n) in
-               cs ++ makeChange rm
+makeChange n | n < 1     = []
+             | otherwise = let (cs, rm) = coinDiv n (getCoin n) in
+                             cs ++ makeChange rm
