@@ -13,6 +13,6 @@ main = do
   if null str then return ()
   else do let i = read str :: Int
               coins = evalState makeChange i
-          putStrLn $ show coins
+          print coins
           main
 

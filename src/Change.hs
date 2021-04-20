@@ -33,5 +33,7 @@ makeChange = do
       let (cs, r) = coinDiv i (getCoin i)
       put r
       rest <- makeChange
-      return $ cs ++ rest
+      pure (cs ++ rest)
+      -- to do the two lines above as a one-liner:
+      -- makeChange >>= pure . (cs ++)
   else return []
