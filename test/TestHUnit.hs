@@ -20,7 +20,7 @@ testMakeChange = TestCase (assertEqual "for (makeChange 31),"
 -- Test makeChange for zero
 testMakeChangeZero :: Test
 testMakeChangeZero = TestCase (assertEqual "for (makeChange 0),"
-                           [] (makeChange 31))
+                           [] (makeChange 0))
 
 -- All tests combined
 tests :: Test

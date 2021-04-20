@@ -31,14 +31,23 @@ coins that can be taken from this amount, then calls itself
 recursively with the remainder amount. Study the code so that you
 understand it.
 
-So, the argument to `makeChange` is the current amount of money that
-we are trying to make change for. You will change this program to use
-the `State` monad to store the remaining amount as a piece of state
-to be read and updated in the `makeChange` function.
+There are two test suites in this project, one that uses HUnit and one
+that uses QuickCheck. Read the source files in the `test` directory to
+get an idea of how they work. You can run them separately by name
+(`cabal test test-hunit` or `cabal test test-quickcheck`) or together
+(`cabal test`).
+
+## Exercise
+
+The argument to `Change.makeChange` is the current amount of money that we
+are trying to make change for. You will change this program to use the
+`State` monad to store the remaining amount as a piece of state to be
+read and updated in the `makeChange` function.
 
 Add the import statement `import Control.Monad.State.Lazy` to the top
-of `Main.hs` and `Change.hs`. You also need to tell `cabal` about this dependency. Add
-`monads-tf` (Monad Transformer Library) to the list of dependencies:
+of `Main.hs` and `Change.hs`. You also need to tell `cabal` about this
+dependency. Add `monads-tf` (Monad Transformer Library) to the list of
+dependencies:
 
     build-depends: base, monads-tf
 	

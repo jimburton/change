@@ -37,7 +37,7 @@ prop_coinDiv = do (c,i) <- elements values -- get an arbitrary (coin, int) pair
                   return ((length cs*i)+r == x)
 
 {--
-The last test is simpler and doesn't need positive integers.
+The last test is simpler and also needs positive integers.
 --}
 prop_makeChange :: Positive Int -> Bool
 prop_makeChange (Positive x) =
@@ -51,5 +51,3 @@ tests = [ testProperty "Test getCoin" prop_getCoin
         
 main :: IO ()
 main = defaultMain tests
-
-
