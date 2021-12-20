@@ -1,6 +1,7 @@
 module Change where
 
 import Control.Monad.State.Lazy
+import Debug.Trace
 
 data Coin = Pound | Fifty | Twenty | Ten | Five | Two | Penny
                deriving (Eq, Ord, Enum, Show)
@@ -21,6 +22,7 @@ getCoin i = head $ dropWhile ((>i) . snd) values
 -}
 coinDiv :: Int -> (Coin, Int) -> ([Coin], Int)
 coinDiv n (c,i) = let (d,m) = n `divMod` i in
+                  -- trace ("coinDiv: n: "++show n) (replicate d c, m)
                   (replicate d c, m)
 
 {-| Takes a number of pennies and returns the shortest list of coins that make up

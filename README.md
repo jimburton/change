@@ -1,6 +1,6 @@
 # change
 
-A lab exercise for the module CI285 Introduction to Functional Programming at
+A lab exercise for the module CI505 Introduction to Functional Programming at
 the University of Brighton.
 
 This program "makes change". That is, it works out which combination
