@@ -3,7 +3,7 @@
 
 name:                change
 version:             0.2.0.0
-synopsis:            CI285 Lab exercise in using the State monad
+synopsis:            CI505 Lab exercise
 homepage:            https://github.com/jimburton/change
 license:             BSD3
 license-file:        LICENSE
@@ -16,32 +16,32 @@ cabal-version:       >=1.10
 executable change
   main-is:             Main.hs
   other-modules:       Change
-  Ghc-Options:         -Wall
-  build-depends:       base
-                     , monads-tf
+  ghc-options:         -Wall
+  build-depends:       base >= 4.11
+                     , mtl >= 2.2
   hs-source-dirs:      src
   default-language:    Haskell2010
 
-Test-Suite test-hunit
-  Type:                exitcode-stdio-1.0
-  Main-is:             TestHUnit.hs
+test-suite test-hunit
+  type:                exitcode-stdio-1.0
+  main-is:             TestHUnit.hs
   other-modules:       Change
   hs-source-dirs:      test, src
-  Ghc-Options:         -Wall
-  Build-depends:       base
-                     , monads-tf
-                     , HUnit                     
+  ghc-options:         -Wall
+  build-depends:       base >= 4.11
+                     , mtl >= 2.2
+                     , HUnit >= 1.6                  
   default-language:    Haskell2010
 
-Test-Suite test-quickcheck
-  Type:                exitcode-stdio-1.0
-  Main-is:             TestQuickCheck.hs
+test-suite test-quickcheck
+  type:                exitcode-stdio-1.0
+  main-is:             TestQuickCheck.hs
   other-modules:       Change
   hs-source-dirs:      test, src
-  Ghc-Options:         -Wall
-  Build-depends:       base
-                     , monads-tf
-                     , test-framework
-                     , test-framework-quickcheck2
-                     , QuickCheck                     
+  ghc-options:         -Wall
+  build-depends:       base >= 4.11
+                     , mtl >= 2.2
+                     , test-framework >= 0.8
+                     , test-framework-quickcheck2 >= 0.3
+                     , QuickCheck >= 2.14
   default-language:    Haskell2010
