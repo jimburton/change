@@ -1,5 +1,15 @@
+-- |
+-- Module      : Change
+-- Description : Functions for calculating change.
+-- Maintainer  : j.burton@brighton.ac.uk
+-- Stability   : experimental
+-- Portability : POSIX
+-- 
+-- Functions for calculating change.
+
 module Change where
 
+-- | A sum type representing coins.
 data Coin = Pound | Fifty | Twenty | Ten | Five | Two | Penny
                deriving (Eq, Ord, Enum, Show)
 
