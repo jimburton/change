@@ -25,7 +25,7 @@ prettyPrint = intercalate ", " . map (prettyPair . (\ds -> (length ds, head ds))
                                   plural i
         plural i              = if i>1 then "s" else ""
 
--- | Entry point to the program.
+-- | Entry point for the program.
 main :: IO ()
 main = do
   putStrLn "Enter a number and I'll count out the change"
