@@ -20,3 +20,5 @@ cabal.project.local
 .HTF/
 
 *.tix
+/src/.Change.hs.~undo-tree~
+/test/#TestQuickCheck.hs#
