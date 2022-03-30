@@ -22,3 +22,4 @@ cabal.project.local
 *.tix
 /#*
 /test/#TestQuickCheck.hs#
+/src/.Change.hs.~undo-tree~
