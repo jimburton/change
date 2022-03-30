@@ -1,6 +1,6 @@
 module Change where
 
-import Control.Monad.State.Lazy
+import Control.Monad.State.Lazy ( MonadState(put, get), State )
 import Debug.Trace
 
 data Coin = Pound | Fifty | Twenty | Ten | Five | Two | Penny
