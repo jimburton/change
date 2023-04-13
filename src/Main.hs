@@ -1,7 +1,7 @@
 -- |
 -- Module      : Main
 -- Description : Entry point to the change program.
--- Maintainer  : j.burton@brighton.ac.uk
+-- Maintainer  : jimburton1@gmail.com
 -- Stability   : experimental
 -- Portability : POSIX
 -- 
@@ -9,8 +9,7 @@
 
 module Main where
 
-import Data.List (group
-                 , intercalate)
+import Data.List (group, intercalate)
 import Data.Char (toLower)
 import Change ( Coin(Penny, Pound), makeChange )
 
@@ -30,8 +29,7 @@ main :: IO ()
 main = do
   putStrLn "Enter a number and I'll count out the change"
   str <- getLine
-  if null str then return ()
-  else do let coins = makeChange (read str::Int)
-          putStrLn $ prettyPrint coins
-          main
+  if null str then pure ()
+  else let coins = makeChange (read str::Int) in
+   putStrLn (prettyPrint coins) >> main
 

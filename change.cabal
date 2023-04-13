@@ -8,7 +8,7 @@ homepage:            https://github.com/jimburton/change
 license:             BSD3
 license-file:        LICENSE
 author:              James Burton
-maintainer:          j.burton@brighton.ac.uk
+maintainer:          jimburton1@gmail.com
 build-type:          Simple
 extra-source-files:  ChangeLog.md
 cabal-version:       >=1.10
