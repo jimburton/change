@@ -28,7 +28,7 @@ test-suite test-hunit
   hs-source-dirs:      test, src
   ghc-options:         -Wall
   build-depends:       base >= 4.11
-                     , HUnit >= 1.6                  
+                     , HUnit
   default-language:    Haskell2010
 
 test-suite test-quickcheck
@@ -38,7 +38,7 @@ test-suite test-quickcheck
   hs-source-dirs:      test, src
   ghc-options:         -Wall
   build-depends:       base >= 4.11
-                     , test-framework >= 0.8
-                     , test-framework-quickcheck2 >= 0.3
-                     , QuickCheck >= 2.14
+                     , test-framework
+                     , test-framework-quickcheck2
+                     , QuickCheck
   default-language:    Haskell2010
